@@ -1,0 +1,163 @@
+// =============================================================================
+// LAYOUT & RESPONSIVE DESIGN
+// Mobile-first responsive design with full-width sections
+// =============================================================================
+
+// Main content layout - full width sections with side margins
+.main-content {
+  width: 100%;
+  margin: 0;
+  padding: 0 2.5in;
+  
+  // Remove grid layout - sections stack vertically at full width
+  
+  // On smaller screens, reduce margins for better mobile experience
+  @media (max-width: 768px) {
+    padding: 0 1in;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 0.5in;
+  }
+}
+
+// =============================================================================
+// MEDIA & RESPONSIVE IMAGES
+// Progressive enhancement for flexible media
+// =============================================================================
+
+.media-example {
+  margin: var(--space-lg) 0;
+  text-align: center;
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+figcaption {
+  margin-top: var(--space-sm);
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+// =============================================================================
+// FOOTER
+// Clean, accessible footer with licensing information
+// =============================================================================
+
+.site-footer {
+  margin-top: var(--space-3xl);
+  padding: var(--space-xl) 2.5in;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+  
+  // On smaller screens, reduce margins for better mobile experience
+  @media (max-width: 768px) {
+    padding: var(--space-xl) 1in;
+  }
+  
+  @media (max-width: 480px) {
+    padding: var(--space-xl) 0.5in;
+  }
+}
+
+// No top margin for homepage footer (when it follows directly after hero)
+.site-footer--no-margin {
+  margin-top: 0;
+  background-color: #f9f9f9 !important;
+  border-top: 1px solid #e5e5e5 !important;
+}
+
+// Force footer background color for homepage
+footer.site-footer.site-footer--no-margin {
+  background-color: #f9f9f9 !important;
+  border-top: 1px solid #e5e5e5 !important;
+}
+
+.footer-content {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.footer-text {
+  margin: 0 0 var(--space-sm) 0;
+  font-size: var(--font-size-small);
+}
+
+.footer-link {
+  color: var(--color-link);
+  text-decoration: underline;
+  
+  &:hover,
+  &:focus {
+    color: var(--color-link-hover);
+  }
+}
+
+.footer-meta {
+  margin: 0;
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.footer-nav {
+  margin: var(--space-md) 0 0 0;
+  font-size: var(--font-size-small);
+}
+
+.footer-link--top {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-link);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  
+  &:hover,
+  &:focus {
+    background-color: var(--color-link-hover);
+    color: white;
+  }
+}
+
+// =============================================================================
+// PRINT STYLES
+// Ensure content works across all media
+// =============================================================================
+
+@media print {
+  .hero__shapes,
+  .skip-link,
+  .main-nav {
+    display: none;
+  }
+  
+  .hero {
+    min-height: auto;
+    page-break-inside: avoid;
+  }
+  
+  .chapter {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+  
+  .chapter__title {
+    page-break-after: avoid;
+  }
+  
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+} 

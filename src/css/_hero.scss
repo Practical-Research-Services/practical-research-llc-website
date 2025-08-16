@@ -1,0 +1,104 @@
+// =============================================================================
+// HERO SECTION WITH GEOMETRIC SHAPES
+// Implements the specified design with CSS-only shapes
+// =============================================================================
+
+.hero {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  background-color: #2A7B9B;
+  background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+  overflow: hidden;
+  
+  @media (min-width: 768px) {
+    padding: var(--space-xl);
+  }
+  
+  @media (min-width: 1024px) {
+    padding: var(--space-2xl);
+  }
+}
+
+// Full height hero for homepage
+.hero--fullscreen {
+  min-height: 100vh;
+}
+
+
+
+// Hero content centered
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 80%;
+  text-align: center;
+  
+  @media (min-width: 768px) {
+    max-width: 60%;
+  }
+}
+
+.hero__title {
+  margin: 0 0 var(--space-sm) 0;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  line-height: 1.2;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  
+  @media (min-width: 768px) {
+    font-size: var(--font-size-3xl);
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+// Animated title for sequential reveal
+.hero__title--animated {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.5s ease-out 0.5s forwards;
+}
+
+.hero__tagline {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-medium);
+  color: white;
+  font-style: italic;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  
+  @media (min-width: 768px) {
+    font-size: var(--font-size-large);
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-xl);
+  }
+}
+
+// Animated tagline for sequential reveal
+.hero__tagline--animated {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.5s ease-out 2.8s forwards;
+}
+
+// Keyframes for fade-in animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

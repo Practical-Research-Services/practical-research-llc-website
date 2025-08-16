@@ -1,0 +1,41 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["eslint:recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": ["error", 4],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "no-console": "warn",
+    "no-unused-vars": "error",
+    "no-undef": "error",
+    "eqeqeq": "error",
+    "curly": "error",
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "no-new-func": "error",
+    "no-script-url": "error",
+    "prefer-const": "error",
+    "no-var": "error",
+    "arrow-spacing": "error",
+    "template-curly-spacing": "error"
+  },
+  "globals": {
+    "console": "readonly",
+    "document": "readonly",
+    "window": "readonly",
+    "navigator": "readonly",
+    "location": "readonly",
+    "history": "readonly",
+    "setTimeout": "readonly",
+    "requestAnimationFrame": "readonly",
+    "IntersectionObserver": "readonly"
+  }
+} 

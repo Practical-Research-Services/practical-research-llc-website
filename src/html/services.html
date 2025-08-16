@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Essential meta information for resilient web design -->
+    <title>Services - Practical Research</title>
+    <meta name="description" content="Services offered by Practical Research - Our research capabilities and offerings">
+    
+    <!-- Progressive enhancement: CSS loads but site works without it -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Skip link for accessibility - first focusable element -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+</head>
+
+<body id="top">
+    <!-- Semantic header with navigation -->
+    <header role="banner" class="site-header header">
+        <!-- Hero section with geometric shapes and title -->
+        <section class="hero" aria-labelledby="site-title">
+            <!-- Decorative geometric shapes - CSS only, no HTML elements -->
+            <div class="hero__shapes" aria-hidden="true">
+                <div class="hero__shape hero__shape--teal"></div>
+                <div class="hero__shape hero__shape--green"></div>
+                <div class="hero__shape hero__shape--yellow"></div>
+            </div>
+            
+            <!-- Hero content centered on right -->
+            <div class="hero__content">
+                <h1 id="site-title" class="hero__title">
+                    Services
+                </h1>
+                <p class="hero__tagline">
+                    Our research capabilities and offerings
+                </p>
+            </div>
+        </section>
+
+        <!-- Main navigation -->
+        <nav role="navigation" aria-label="Main navigation" class="main-nav">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link current">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main id="main-content" role="main">
+        <!-- Services content sections -->
+        <article id="research-consulting" class="chapter chapter--research">
+            <header class="chapter__header">
+                <div class="service-icon service-icon--research" aria-hidden="true">
+                    <div class="service-icon__shape"></div>
+                    <div class="service-icon__text">📊</div>
+                </div>
+                <h2 class="chapter__title">Research Studies</h2>
+                <p class="chapter__subtitle">Receive expert analysis of your organization's emotional culture</p>
+            </header>
+            
+            <section class="chapter__content">
+                <p>Gain a better understanding of how your employees feel about your work environment by encouraging employees 
+                    to participate in interviews and complete surveys.</p>
+                <p>Determine how the feelings of your employees can be used to benefit the organization.</p>
+            </section>
+        </article>
+
+        <article id="data-analysis" class="chapter chapter--business">
+            <header class="chapter__header">
+                <div class="service-icon service-icon--business" aria-hidden="true">
+                    <div class="service-icon__shape"></div>
+                    <div class="service-icon__text">💼</div>
+                </div>
+                <h2 class="chapter__title">Business Case Studies</h2>
+                <p class="chapter__subtitle">Turn past events into actionable insights</p>
+            </header>
+            
+            <section class="chapter__content">
+                <p>Gain a better understanding of a business incident by using existing scientific research.</p>
+                <p>Discuss learning outcomes from the business incident.</p>
+                <p>Receive recommendations based upon answers from the discussion.</p>
+            </section>
+        </article>
+
+        <article id="report-writing" class="chapter chapter--workshop">
+            <header class="chapter__header">
+                <div class="service-icon service-icon--workshop" aria-hidden="true">
+                    <div class="service-icon__shape"></div>
+                    <div class="service-icon__text">🎯</div>
+                </div>
+                <h2 class="chapter__title">Emotional Culture Workshops</h2>
+                <p class="chapter__subtitle">Leverage hands-on training to improve your organization's emotional culture</p>
+            </header>
+            
+            <section class="chapter__content">
+                <p>Discuss how your company can focus on organizational culture, specifically emotional culture, to overcome disengagement among your employees at work.</p>
+            </section>
+        </article>
+    </main>
+
+
+    <!-- Site footer  -->
+    <footer role="contentinfo" class="site-footer site-footer--no-margin">
+        <div class="footer-content">
+            <p class="footer-text">
+                &copy; 2025 Practical Research, LLC. All rights reserved.
+            </p>
+            <p class="footer-nav">
+                <a href="#top" class="footer-link footer-link--top">Back to Top</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript enhancement - loaded at end for progressive enhancement -->
+    <script src="../js/main.js"></script>
+</body>
+</html> 

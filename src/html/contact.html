@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Essential meta information for resilient web design -->
+    <title>Contact - Practical Research</title>
+    <meta name="description" content="Contact Practical Research - Get in touch for your research needs">
+    
+    <!-- Progressive enhancement: CSS loads but site works without it -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Skip link for accessibility - first focusable element -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+</head>
+
+<body id="top">
+    <!-- Semantic header with navigation -->
+    <header role="banner" class="site-header header">
+        <!-- Hero section with geometric shapes and title -->
+        <section class="hero" aria-labelledby="site-title">
+            <!-- Decorative geometric shapes - CSS only, no HTML elements -->
+            <div class="hero__shapes" aria-hidden="true">
+                <div class="hero__shape hero__shape--teal"></div>
+                <div class="hero__shape hero__shape--green"></div>
+                <div class="hero__shape hero__shape--yellow"></div>
+            </div>
+            
+            <!-- Hero content centered on right -->
+            <div class="hero__content">
+                <h1 id="site-title" class="hero__title">
+                    Contact
+                </h1>
+                <p class="hero__tagline">
+                    Get in touch for your research needs
+                </p>
+            </div>
+        </section>
+
+        <!-- Main navigation -->
+        <nav role="navigation" aria-label="Main navigation" class="main-nav">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link current">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main id="main-content" role="main">
+        <!-- Contact content sections -->
+        <article id="get-in-touch" class="chapter">
+            <header class="chapter__header">
+                <h2 class="chapter__title">Contact Us</h2>
+                <p class="chapter__subtitle">Ready to start your research project? Have questions about our services? We're here to help.</p>
+            </header>
+
+            <section class="chapter__content">
+                <form class="contact-form" action="https://formspree.io/f/xqalbajp" method="post">
+                    <!-- Formspree configuration -->
+                    <input type="hidden" name="_subject" value="New contact form submission from Practical Research website">
+                    <input type="hidden" name="_next" value="thank-you.html">
+                    
+                    <div class="form-group">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required aria-describedby="name-help">
+                        <small id="name-help">Please enter your full name.</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="_replyto" required aria-describedby="email-help">
+                        <small id="email-help">We'll use this to respond to your inquiry.</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" aria-describedby="subject-help">
+                        <small id="subject-help">Please provided a brief description of your inquiry.</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message <span class="required">*</span></label>
+                        <textarea id="message" name="message" rows="6" required aria-describedby="message-help"></textarea>
+                        <small id="message-help">Please provide details about your research needs.</small>
+                    </div>
+                    
+                    <!-- Honeypot field for spam protection -->
+                    <input type="text" name="_gotcha" style="display:none">
+                    
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </section>
+        </article>
+
+        <article id="location" class="chapter">
+            <header class="chapter__header">
+                <h2 class="chapter__title">Location</h2>
+                <p class="chapter__subtitle">Where to find us</p>
+            </header>
+            
+            <section class="chapter__content">
+                <address>
+                    <strong>Practical Research, LLC</strong><br>
+                    13110 Birch Drive, 131<br>
+                    Suite 148<br>
+                    Omaha, NE 68164<br>
+                    United States
+                </address>
+                
+                <p>We're conveniently located in the heart of Omaha, NE, with easy access to public transportation and parking available.</p>
+            </section>
+        </article>
+    </main>
+
+
+    <!-- Site footer  -->
+    <footer role="contentinfo" class="site-footer site-footer--no-margin">
+        <div class="footer-content">
+            <p class="footer-text">
+                &copy; 2025 Practical Research, LLC. All rights reserved.
+            </p>
+            <p class="footer-nav">
+                <a href="#top" class="footer-link footer-link--top">Back to Top</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript enhancement - loaded at end for progressive enhancement -->
+    <script src="../js/main.js"></script>
+</body>
+</html> 

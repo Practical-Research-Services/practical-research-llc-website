@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Essential meta information for resilient web design -->
+    <title>About - Practical Research</title>
+    <meta name="description" content="About Practical Research - Learn more about our approach and expertise">
+    
+    <!-- Progressive enhancement: CSS loads but site works without it -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Skip link for accessibility - first focusable element -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+</head>
+
+<body id="top">
+    <!-- Semantic header with navigation -->
+    <header role="banner" class="site-header header">
+        <!-- Hero section with geometric shapes and title -->
+        <section class="hero" aria-labelledby="site-title">
+            <!-- Decorative geometric shapes - CSS only, no HTML elements -->
+            <div class="hero__shapes" aria-hidden="true">
+                <div class="hero__shape hero__shape--teal"></div>
+                <div class="hero__shape hero__shape--green"></div>
+                <div class="hero__shape hero__shape--yellow"></div>
+            </div>
+            
+            <!-- Hero content centered on right -->
+            <div class="hero__content">
+                <h1 id="site-title" class="hero__title">
+                    About
+                </h1>
+                <p class="hero__tagline">
+                    Learn more about Practical Research, LLC
+                </p>
+            </div>
+        </section>
+
+        <!-- Main navigation -->
+        <nav role="navigation" aria-label="Main navigation" class="main-nav">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link current">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main id="main-content" role="main">
+        <!-- About content sections -->
+        <!-- <article id="our-mission" class="chapter">
+            <header class="chapter__header">
+                <h2 class="chapter__title">Our Mission</h2>
+                <p class="chapter__subtitle">What drives us</p>
+            </header>
+            
+            <section class="chapter__content">
+                <p>Add your mission statement and core values here.</p>
+            </section>
+        </article>
+
+        <article id="our-approach" class="chapter">
+            <header class="chapter__header">
+                <h2 class="chapter__title">Our Approach</h2>
+                <p class="chapter__subtitle">How we work</p>
+            </header>
+            
+            <section class="chapter__content">
+                <p>Describe your methodology and approach to research.</p>
+            </section>
+        </article> -->
+
+        <article id="our-team" class="chapter">
+            <header class="chapter__header">
+                <h2 class="chapter__title">Our Team</h2>
+                <p class="chapter__subtitle">The people behind the research</p>
+            </header>
+            
+            <section class="chapter__content">
+                <div class="team-member">
+                    <figure class="media-example">
+                        <img src="assets/images/Nelson_Dantzler.jpg" 
+                             alt="Nelson Dantzler" 
+                             class="responsive-image team-photo">
+                    </figure>
+                    <div class="team-member-bio">
+                        <h3>Dr. Nelson Dantzler</h3>
+                        <p>Dr. Nelson Dantzler is the principal researcher at Practical Research, LLC. He specializes in the area of emotional culture research, which focuses on how employees feel in the organization. 
+                        He has performed focused research in women-owned businesses, start-ups, and corporate environments. In addition, he has performed financial research across a multitude of fortune 100 companies within a cross section of industry sectors for over 30 years. 
+                        He looks forward to working with your organization to optimize employee performance, employee satisfaction, and employee engagement through emotional culture strategies. </p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+
+    <!-- Site footer  -->
+    <footer role="contentinfo" class="site-footer site-footer--no-margin">
+        <div class="footer-content">
+            <p class="footer-text">
+                &copy; 2025 Practical Research, LLC. All rights reserved.
+            </p>
+            <p class="footer-nav">
+                <a href="#top" class="footer-link footer-link--top">Back to Top</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript enhancement - loaded at end for progressive enhancement -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

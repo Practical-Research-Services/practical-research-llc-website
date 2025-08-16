@@ -1,0 +1,123 @@
+// =============================================================================
+// BASE STYLES & RESET
+// Normalize inconsistencies and establish baseline
+// =============================================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  
+  // Improve text rendering
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// =============================================================================
+// MODERN TYPOGRAPHY
+// Professional headings with Playfair Display
+// =============================================================================
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+}
+
+h5 {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-medium);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// Enhanced paragraph styling
+p {
+  font-weight: var(--font-weight-normal);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+// Professional link styling
+a {
+  font-weight: var(--font-weight-medium);
+  transition: color 0.2s ease;
+}
+
+// =============================================================================
+// ACCESSIBILITY HELPERS
+// Essential for resilient, inclusive design
+// =============================================================================
+
+// Skip link for keyboard navigation
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  z-index: 1000;
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-text);
+  color: var(--color-background);
+  text-decoration: none;
+  border-radius: 4px;
+  
+  &:focus {
+    top: 6px;
+  }
+}
+
+// Visually hidden utility for screen readers
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+} 

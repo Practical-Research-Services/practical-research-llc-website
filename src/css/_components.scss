@@ -1,0 +1,665 @@
+// =============================================================================
+// COMPONENT STYLES
+// Navigation, content, and interactive elements
+// =============================================================================
+
+// Team member styling
+.team-member {
+  margin: var(--space-lg) 0;
+  
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xl);
+  }
+}
+
+.team-photo {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  
+  @media (min-width: 768px) {
+    flex-shrink: 0;
+    width: 250px;
+  }
+}
+
+.team-member-bio {
+  margin-top: var(--space-md);
+  
+  @media (min-width: 768px) {
+    margin-top: 0;
+    flex: 1;
+  }
+  
+  h3 {
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
+  }
+  
+  p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    text-align: justify;
+  }
+}
+
+// Header with subtle texture overlay
+.header {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.8) 1px, transparent 0),
+      radial-gradient(circle at 10px 10px, rgba(255, 255, 255, 0.4) 1px, transparent 0);
+    background-size: 20px 20px, 8px 8px;
+    background-position: 0 0, 4px 4px;
+    -webkit-mask: linear-gradient(to right, black 0%, black 20%, transparent 80%);
+    mask: linear-gradient(to right, black 0%, black 20%, transparent 80%);
+    pointer-events: none;
+    z-index: 3;
+    
+    @media (max-width: 768px) {
+      width: 50%;
+    }
+    
+    @media (max-width: 480px) {
+      width: 100%;
+      opacity: 0.6;
+    }
+  }
+  
+  // Ensure content stays above the texture
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Navigation styles - positioned centered at top
+.main-nav {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  padding: var(--space-md);
+  
+  @media (max-width: 480px) {
+    padding: var(--space-sm);
+  }
+}
+
+// Animated navigation for sequential reveal
+.main-nav--animated {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-10px);
+  animation: fadeInDown 1.5s ease-out 2.8s forwards;
+}
+
+// Keyframes for navigation fade-in
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+  @media (min-width: 768px) {
+    gap: var(--space-md);
+  }
+}
+
+.nav-link {
+  display: block;
+  padding: var(--space-xs) var(--space-sm);
+  color: white;
+  text-decoration: none;
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-semibold);
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  
+  &:hover,
+  &:focus,
+  &.current {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+  }
+}
+
+// =============================================================================
+// DROPDOWN MENU STYLES
+// Accessible dropdown navigation
+// =============================================================================
+
+.nav-item--dropdown {
+  position: relative;
+}
+
+.nav-link--dropdown {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  
+  .dropdown-arrow {
+    font-size: 0.8em;
+    transition: transform 0.2s ease;
+  }
+  
+  &:hover .dropdown-arrow,
+  &[aria-expanded="true"] .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  padding: var(--space-xs) 0;
+  list-style: none;
+  z-index: 1000;
+  
+  // Hidden by default
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  
+  // Show on hover or focus
+  .nav-item--dropdown:hover &,
+  .nav-item--dropdown:focus-within & {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  // Show when parent has aria-expanded="true"
+  .nav-link--dropdown[aria-expanded="true"] + & {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-link {
+  display: block;
+  padding: var(--space-xs) var(--space-sm);
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-small);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  
+  &:hover,
+  &:focus {
+    background-color: #57C785;
+    color: white;
+    outline: none;
+  }
+  
+  &:focus {
+    outline: 2px solid #57C785;
+    outline-offset: -2px;
+  }
+}
+
+// Responsive dropdown styles
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    margin-top: var(--space-xs);
+    
+    // Always visible on mobile
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    
+    // But hidden by default unless toggled
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    
+    .nav-item--dropdown:hover &,
+    .nav-item--dropdown:focus-within &,
+    .nav-link--dropdown[aria-expanded="true"] + & {
+      max-height: 300px;
+    }
+  }
+  
+  .dropdown-link {
+    padding: var(--space-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+// =============================================================================
+// CHAPTER STYLING
+// =============================================================================
+
+// Chapter styling
+.chapter {
+  margin-bottom: 0rem;
+  padding: var(--space-lg) 3in;
+  width: 100%;
+  position: relative;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  // Initial hidden state for scroll fade-in animation
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  }
+  
+  &:target {
+    scroll-margin-top: var(--space-lg);
+  }
+  
+  // Add subtle left border accent for each service type
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: 12px 0 0 12px;
+  }
+}
+
+// Color-coded chapter variants
+.chapter--research {
+  &::before {
+    background: linear-gradient(180deg, var(--color-accent-teal) 0%, #0d9488 100%);
+  }
+  
+  .service-icon--research {
+    background: linear-gradient(135deg, var(--color-accent-teal) 0%, #0d9488 100%);
+  }
+}
+
+.chapter--business {
+  &::before {
+    background: linear-gradient(180deg, var(--color-accent-green) 0%, #059669 100%);
+  }
+  
+  .service-icon--business {
+    background: linear-gradient(135deg, var(--color-accent-green) 0%, #059669 100%);
+  }
+}
+
+.chapter--workshop {
+  &::before {
+    background: linear-gradient(180deg, var(--color-accent-yellow) 0%, #f59e0b 100%);
+  }
+  
+  .service-icon--workshop {
+    background: linear-gradient(135deg, var(--color-accent-yellow) 0%, #f59e0b 100%);
+  }
+}
+
+// Service icons
+.service-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--space-md);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    z-index: 1;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 70%);
+    z-index: 2;
+  }
+}
+
+.service-icon__shape {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  z-index: 0;
+}
+
+.service-icon__text {
+  position: relative;
+  z-index: 3;
+  font-size: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+// Show chapters immediately if JavaScript is disabled
+.no-js .chapter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// Show chapters immediately if motion is reduced
+@media (prefers-reduced-motion: reduce) {
+  .chapter {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chapter__header {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 2px solid rgba(87, 199, 133, 0.2);
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #57C785, transparent);
+  }
+}
+
+.chapter__title {
+  margin: 0 0 var(--space-xs) 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  
+  @media (min-width: 768px) {
+    font-size: var(--font-size-2xl);
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+.chapter__subtitle {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.chapter__content {
+  width: 100%;
+  
+  p {
+    margin-bottom: var(--space-md);
+    line-height: 1.7;
+  }
+  
+  code {
+    font-family: var(--font-family-mono);
+    font-size: 0.9em;
+    background-color: #f5f5f5;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+  }
+  
+  strong {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+}
+
+// Quote styling
+.chapter__quote {
+  margin: var(--space-lg) 0;
+  padding: var(--space-md);
+  border-left: 4px solid #57C785;
+  background-color: rgba(45, 212, 191, 0.05);
+  font-style: italic;
+  
+  p {
+    margin: 0 0 var(--space-sm) 0;
+    font-size: var(--font-size-medium);
+  }
+  
+  cite {
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    font-style: normal;
+  }
+}
+
+// Definition list styling
+.definition-list {
+  margin: var(--space-lg) 0;
+  
+  dt {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-medium);
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+  }
+  
+  dd {
+    margin: 0 0 var(--space-md) var(--space-md);
+    color: var(--color-text-secondary);
+    
+    a {
+      color: var(--color-link);
+      text-decoration: none;
+      
+      &:hover,
+      &:focus {
+        color: var(--color-link-hover);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Process list styling
+.process-list {
+  margin: var(--space-lg) 0;
+  padding-left: var(--space-md);
+  
+  li {
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+    
+    strong {
+      color: var(--color-link);
+    }
+  }
+}
+
+// Interactive example (works without JavaScript)
+.interactive-example {
+  margin: var(--space-lg) 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  
+  summary {
+    padding: var(--space-md);
+    background-color: var(--color-accent-teal);
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    
+    &:hover {
+      background-color: #0d9488;
+    }
+  }
+  
+  .example-content {
+    padding: var(--space-md);
+    background-color: #f9f9f9;
+  }
+}
+
+// =============================================================================
+// CONTACT FORM STYLES
+// Accessible, resilient form design
+// =============================================================================
+
+.contact-form {
+  max-width: var(--max-width-content);
+  margin: var(--space-lg) 0;
+}
+
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  font-family: var(--font-family-heading);
+}
+
+.required {
+  color: var(--color-accent-green);
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 2px solid #e5e5e5;
+  border-radius: 4px;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: #57C785;
+    box-shadow: 0 0 0 3px rgba(87, 199, 133, 0.1);
+  }
+  
+  &:invalid {
+    border-color: #dc2626;
+  }
+  
+  &:valid {
+    border-color: var(--color-accent-green);
+  }
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-group small {
+  display: block;
+  margin-top: var(--space-xs);
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-primary);
+}
+
+.submit-button {
+  background-color: #57C785;
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family-heading);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  
+  &:hover {
+    background-color: #4ab370;
+  }
+  
+  &:focus {
+    outline: 2px solid #57C785;
+    outline-offset: 2px;
+  }
+  
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+// Address styling
+address {
+  font-style: normal;
+  line-height: 1.6;
+  margin: var(--space-lg) 0;
+  padding: var(--space-md);
+  background-color: #f9f9f9;
+  border-left: 4px solid #57C785;
+  border-radius: 0 4px 4px 0;
+} 

@@ -1,0 +1,19 @@
+// =============================================================================
+// RESILIENT WEB DESIGN STYLES
+// Demonstrating progressive enhancement through CSS
+// =============================================================================
+
+// Import CSS custom properties and design system variables
+@import 'variables';
+
+// Import base styles and accessibility helpers
+@import 'base';
+
+// Import hero section with geometric shapes
+@import 'hero';
+
+// Import component styles (navigation, content, etc.)
+@import 'components';
+
+// Import layout and responsive design
+@import 'layout'; 

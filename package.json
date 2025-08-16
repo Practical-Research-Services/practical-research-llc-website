@@ -1,0 +1,41 @@
+{
+  "name": "practical-research-website",
+  "version": "1.0.0",
+  "description": "Practical Research website built with resilient web design principles",
+  "main": "index.html",
+  "scripts": {
+    "build": "npm run build:css && npm run build:js && npm run build:html && npm run copy:assets",
+    "build:css": "sass src/css/main.scss dist/css/main.css --style=compressed",
+    "build:js": "mkdir -p dist/js && cp src/js/*.js dist/js/",
+    "build:html": "cp src/html/*.html dist/",
+    "copy:assets": "mkdir -p dist/assets && cp -r assets/* dist/assets/ 2>/dev/null || true",
+    "watch": "npm run watch:css & npm run watch:js & npm run watch:html",
+    "watch:css": "sass --watch src/css/main.scss:dist/css/main.css",
+    "watch:js": "chokidar 'src/js/**/*.js' -c 'npm run build:js'",
+    "watch:html": "chokidar 'src/html/**/*.html' -c 'npm run build:html'",
+    "serve": "python3 -m http.server 8080 --directory dist || python -m SimpleHTTPServer 8080",
+    "dev": "npm run build && npm run watch & npm run serve",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "lint:html": "htmlhint src/html/*.html",
+    "lint:css": "stylelint 'src/css/**/*.scss'",
+    "lint:js": "eslint src/js/*.js",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "practical-research",
+    "resilient-web-design",
+    "progressive-enhancement",
+    "accessibility",
+    "mobile-first"
+  ],
+  "author": "Your Name",
+  "license": "CC-BY-SA-4.0",
+  "devDependencies": {
+    "sass": "^1.69.5",
+    "chokidar-cli": "^3.0.0",
+    "htmlhint": "^1.1.4",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard-scss": "^11.1.0",
+    "eslint": "^8.53.0"
+  }
+} 

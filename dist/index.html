@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Essential meta information for resilient web design -->
+    <title>Practical Research</title>
+    <meta name="description" content="Practical Research - A website built with resilient web design principles">
+    
+    <!-- Progressive enhancement: CSS loads but site works without it -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Skip link for accessibility - first focusable element -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+</head>
+
+<body id="top">
+    <!-- Semantic header with navigation -->
+    <header role="banner" class="site-header header">
+        <!-- Hero section with geometric shapes and title -->
+        <section class="hero hero--fullscreen" aria-labelledby="site-title">
+            <!-- Decorative geometric shapes - CSS only, no HTML elements -->
+            <div class="hero__shapes" aria-hidden="true">
+                <div class="hero__shape hero__shape--teal"></div>
+                <div class="hero__shape hero__shape--green"></div>
+                <div class="hero__shape hero__shape--yellow"></div>
+            </div>
+            
+            <!-- Hero content centered on right -->
+            <div class="hero__content">
+                <h1 id="site-title" class="hero__title hero__title--animated">
+                    Practical Research, LLC
+                </h1>
+                <p class="hero__tagline hero__tagline--animated">
+                    How do you feel at work?
+                </p>
+            </div>
+        </section>
+
+        <!-- Main navigation -->
+        <nav role="navigation" aria-label="Main navigation" class="main-nav main-nav--animated">
+            <ul class="nav-list">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Site footer  -->
+    <footer role="contentinfo" class="site-footer site-footer--no-margin">
+        <div class="footer-content">
+            <p class="footer-text">
+                &copy; 2025 Practical Research, LLC. All rights reserved.
+            </p>
+            <p class="footer-nav">
+                <a href="#top" class="footer-link footer-link--top">Back to Top</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript enhancement - loaded at end for progressive enhancement -->
+    <script src="../js/main.js"></script>
+</body>
+</html> 
